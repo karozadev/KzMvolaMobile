@@ -9,6 +9,12 @@
 
 Ce projet est le portage mobile Flutter de [KzMvola](https://github.com/karozadev/KzMvola), la version web d'origine.
 
+<p align="center">
+  <a href="https://github.com/karozadev/KzMvolaMobile/releases/latest">
+    <img src="https://img.shields.io/badge/T%C3%A9l%C3%A9charger-APK-00695C?style=for-the-badge&logo=android&logoColor=white" alt="Télécharger l'APK" />
+  </a>
+</p>
+
 ## Aperçu
 
 <p align="center">

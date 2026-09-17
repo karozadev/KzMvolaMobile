@@ -14,6 +14,7 @@ ThemeData _themeFrom(Brightness brightness) {
   final colorScheme = ColorScheme.fromSeed(seedColor: _seedColor, brightness: brightness);
   return ThemeData(
     useMaterial3: true,
+    fontFamily: 'Montserrat',
     colorScheme: colorScheme,
     scaffoldBackgroundColor: colorScheme.surface,
     cardTheme: CardThemeData(

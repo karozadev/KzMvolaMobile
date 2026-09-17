@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  build-and-release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -46,8 +46,25 @@ jobs:
           mkdir -p release
           cp build/app/outputs/flutter-apk/app-release.apk "release/Kahiatra-${GITHUB_REF_NAME}.apk"
 
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk
+          path: release/Kahiatra-*.apk
+          retention-days: 7
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download APK artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: apk
+          path: release
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: release/Kahiatra-${{ github.ref_name }}.apk
+          files: release/Kahiatra-*.apk
           generate_release_notes: true
